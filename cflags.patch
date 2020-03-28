@@ -1,0 +1,14 @@
+--- a/CMakeLists.txt-org	2019-10-04 09:01:07.811694682 -0700
++++ b/CMakeLists.txt	2019-10-04 09:03:05.909402357 -0700
+@@ -1450,9 +1450,9 @@
+        Geo/*.cpp Graphics/*.cpp Mesh/*.cpp Numeric/*.cpp Parser/*.cpp
+        Plugin/*.cpp Post/*.cpp Solver/*.cpp)
+   set(WF "-Wall")
+-  check_cxx_compiler_flag("-Wint-to-void-pointer-cast" WCAST)
++  check_cxx_compiler_flag("-Wint-to-pointer-cast" WCAST)
+   if(WCAST)
+-    set(WF "${WF} -Wno-int-to-void-pointer-cast")
++    set(WF "${WF} -Wno-int-to-pointer-cast")
+   endif()
+   check_cxx_compiler_flag("-Wdeprecated-declarations" WDEPREC)
+   if(WDEPREC)

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Exec=gmsh
+Name=Gmsh
+GenericName=3D Finite Element Method Mesh Generator
+Terminal=false
+Categories=Science;Engineering;Development;
+Icon=gmsh

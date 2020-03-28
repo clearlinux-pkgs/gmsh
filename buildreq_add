@@ -1,0 +1,14 @@
+# This file contains additional build requirements that did not get
+# picked up automatically. One name per line, no whitespace.
+glu-dev
+mesa-dev
+bison-dev
+flex-dev
+CGNS-dev
+cairo-dev
+metis-dev
+freetype-dev
+gmp-dev
+hdf5-dev
+libMED-dev
+OpenCASCADE-dev

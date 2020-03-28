@@ -1,0 +1,18 @@
+p3_version=$(/usr/bin/python3 -c "import sys; sys.stdout.write(sys.version[:3])")
+
+mkdir -p %{buildroot}/usr/share/gmsh
+mv %{buildroot}/usr/lib64/gmsh.jl %{buildroot}/usr/share/gmsh/
+mkdir -p %{buildroot}/usr/lib/python$p3_version/site-packages
+mv %{buildroot}/usr/bin/onelab.py %{buildroot}/usr/lib/python$p3_version/site-packages
+mv %{buildroot}/usr/lib64/gmsh.py %{buildroot}/usr/lib/python$p3_version/site-packages
+
+module load openmpi
+mkdir -p %{buildroot}/$MPI_ROOT/share/gmsh
+mv %{buildroot}/usr/lib64/openmpi/lib/gmsh.jl %{buildroot}/$MPI_ROOT/share/gmsh
+mkdir -p %{buildroot}/$MPI_ROOT/lib/python$p3_version/site-packages
+mv %{buildroot}/$MPI_ROOT/bin/onelab.py %{buildroot}/$MPI_ROOT/lib/python$p3_version/site-packages
+mv %{buildroot}/$MPI_ROOT/lib/gmsh.py %{buildroot}/$MPI_ROOT/lib/python$p3_version/site-packages
+module unload openmpi
+
+# Install icon
+install -Dpm 0644 utils/icons/solid_128x128.png  %{buildroot}%{_datadir}/icons/hicolor/scalable/apps/gmsh.png
