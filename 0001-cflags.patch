@@ -1,6 +1,17 @@
---- a/CMakeLists.txt-org	2019-10-04 09:01:07.811694682 -0700
-+++ b/CMakeLists.txt	2019-10-04 09:03:05.909402357 -0700
-@@ -1450,9 +1450,9 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: Juro Bystricky <juro.bystricky@intel.com>
+Date: Fri, 27 Mar 2020 18:43:56 -0700
+Subject: [PATCH] cflags
+
+---
+ CMakeLists.txt | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 4122a22..9811546 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -1465,9 +1465,9 @@ if(WALL AND NOT MSVC)
         Geo/*.cpp Graphics/*.cpp Mesh/*.cpp Numeric/*.cpp Parser/*.cpp
         Plugin/*.cpp Post/*.cpp Solver/*.cpp)
    set(WF "-Wall")
