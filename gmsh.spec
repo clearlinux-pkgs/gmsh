@@ -4,7 +4,7 @@
 #
 Name     : gmsh
 Version  : 4.6.0
-Release  : 6
+Release  : 7
 URL      : https://gmsh.info/src/gmsh-4.6.0-source.tgz
 Source0  : https://gmsh.info/src/gmsh-4.6.0-source.tgz
 Source1  : gmsh.desktop
@@ -166,7 +166,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1602376664
+export SOURCE_DATE_EPOCH=1607983332
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -232,7 +232,7 @@ module unload openmpi
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1602376664
+export SOURCE_DATE_EPOCH=1607983332
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gmsh
 cp %{_builddir}/gmsh-4.6.0-source/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/dbe2024835d6ed5e4240eec606ed656247a78b1c
@@ -337,8 +337,8 @@ install -Dpm 0644 utils/icons/gmsh.svg %{buildroot}/usr/share/icons/hicolor/scal
 /usr/lib64/openmpi/bin/gmsh
 /usr/lib64/openmpi/lib/libgmsh.so.4.6
 /usr/lib64/openmpi/lib/libgmsh.so.4.6.0
-/usr/lib64/openmpi/lib/python3.8/site-packages/gmsh.py
-/usr/lib64/openmpi/lib/python3.8/site-packages/onelab.py
+/usr/lib64/openmpi/lib/python3.9/site-packages/gmsh.py
+/usr/lib64/openmpi/lib/python3.9/site-packages/onelab.py
 /usr/lib64/openmpi/share/doc/gmsh/CHANGELOG.txt
 /usr/lib64/openmpi/share/doc/gmsh/CREDITS.txt
 /usr/lib64/openmpi/share/doc/gmsh/LICENSE.txt
