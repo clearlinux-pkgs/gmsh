@@ -4,7 +4,7 @@
 #
 Name     : gmsh
 Version  : 4.6.0
-Release  : 10
+Release  : 11
 URL      : https://gmsh.info/src/gmsh-4.6.0-source.tgz
 Source0  : https://gmsh.info/src/gmsh-4.6.0-source.tgz
 Source1  : gmsh.desktop
