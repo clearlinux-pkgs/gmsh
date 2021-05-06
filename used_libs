@@ -21,7 +21,7 @@ libTKernel.so.11
 libX11.so.6
 libc.so.6
 libcairo.so.2
-libcgns.so.4.1
+libcgns.so.4.2
 libfltk.so.1.3
 libfltk_gl.so.1.3
 libfltk_images.so.1.3
