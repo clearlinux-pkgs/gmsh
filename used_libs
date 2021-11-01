@@ -33,8 +33,6 @@ libm.so.6
 libmedC.so.11
 libmetis.so
 libmpi.so.40
-libopenblas.so.0
 libpng16.so.16
-libpthread.so.0
 libstdc++.so.6
 libz.so.1
