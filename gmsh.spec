@@ -4,7 +4,7 @@
 #
 Name     : gmsh
 Version  : 4.8.4
-Release  : 21
+Release  : 22
 URL      : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source0  : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source1  : gmsh.desktop
@@ -166,7 +166,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635733132
+export SOURCE_DATE_EPOCH=1635734896
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -232,7 +232,7 @@ module unload openmpi
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1635733132
+export SOURCE_DATE_EPOCH=1635734896
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gmsh
 cp %{_builddir}/gmsh-4.8.4-source/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/dbe2024835d6ed5e4240eec606ed656247a78b1c
