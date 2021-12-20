@@ -4,7 +4,7 @@
 #
 Name     : gmsh
 Version  : 4.8.4
-Release  : 23
+Release  : 24
 URL      : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source0  : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source1  : gmsh.desktop
@@ -21,7 +21,6 @@ Requires: gmsh-python = %{version}-%{release}
 Requires: gmsh-python3 = %{version}-%{release}
 BuildRequires : CGNS-dev
 BuildRequires : OpenCASCADE-dev
-BuildRequires : apache-ant
 BuildRequires : bison-dev
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-distutils3
@@ -46,10 +45,10 @@ BuildRequires : openjdk11
 BuildRequires : openjdk11-dev
 BuildRequires : openmpi-dev
 BuildRequires : openssh
+BuildRequires : pypi(requests)
 BuildRequires : python3
 BuildRequires : python3-dev
 BuildRequires : qtbase-dev mesa-dev
-BuildRequires : requests
 BuildRequires : swig
 BuildRequires : zlib-dev
 Patch1: 0001-cflags.patch
@@ -166,7 +165,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1635734896
+export SOURCE_DATE_EPOCH=1640037555
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -232,7 +231,7 @@ module unload openmpi
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1635734896
+export SOURCE_DATE_EPOCH=1640037555
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gmsh
 cp %{_builddir}/gmsh-4.8.4-source/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/dbe2024835d6ed5e4240eec606ed656247a78b1c
