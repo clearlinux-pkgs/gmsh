@@ -4,7 +4,7 @@
 #
 Name     : gmsh
 Version  : 4.8.4
-Release  : 25
+Release  : 26
 URL      : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source0  : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source1  : gmsh.desktop
@@ -41,8 +41,8 @@ BuildRequires : mesa-dev
 BuildRequires : metis-dev
 BuildRequires : modules
 BuildRequires : openblas
-BuildRequires : openjdk11
-BuildRequires : openjdk11-dev
+BuildRequires : openjdk
+BuildRequires : openjdk-dev
 BuildRequires : openmpi-dev
 BuildRequires : openssh
 BuildRequires : pypi(requests)
@@ -165,7 +165,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1640037555
+export SOURCE_DATE_EPOCH=1666708691
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -198,10 +198,10 @@ export GCC_IGNORE_WERROR=1
 export AR=gcc-ar
 export RANLIB=gcc-ranlib
 export NM=gcc-nm
-export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
-export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
-export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
-export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -mtune=skylake "
+export CFLAGS="$CFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
+export FCFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
+export FFLAGS="$FFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
+export CXXFLAGS="$CXXFLAGS -O3 -Wl,-z,x86-64-v3 -ffat-lto-objects -flto=auto -march=x86-64-v3 -msse2avx -mtune=skylake "
 export CFLAGS="$CFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 export CXXFLAGS="$CXXFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
 export FCFLAGS="$FCFLAGS -march=x86-64-v3 -m64 -Wl,-z,x86-64-v3"
@@ -231,27 +231,27 @@ module unload openmpi
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1640037555
+export SOURCE_DATE_EPOCH=1666708691
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/gmsh
-cp %{_builddir}/gmsh-4.8.4-source/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/dbe2024835d6ed5e4240eec606ed656247a78b1c
-cp %{_builddir}/gmsh-4.8.4-source/contrib/ANN/Copyright.txt %{buildroot}/usr/share/package-licenses/gmsh/20adfc29688bd1c919d4a6257083f48ca32e6762
-cp %{_builddir}/gmsh-4.8.4-source/contrib/ANN/License.txt %{buildroot}/usr/share/package-licenses/gmsh/b3225b981f5cc501b08289f989e8fb4cde208598
-cp %{_builddir}/gmsh-4.8.4-source/contrib/MathEx/license.txt %{buildroot}/usr/share/package-licenses/gmsh/1b10da150f8acd92e45dc8454a4d80b29acb2f90
-cp %{_builddir}/gmsh-4.8.4-source/contrib/Netgen/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/e3c201d5ec0b1d34403a209120ffbe44fee51337
-cp %{_builddir}/gmsh-4.8.4-source/contrib/eigen/COPYING.BSD %{buildroot}/usr/share/package-licenses/gmsh/8fa159b3e41e0a44e10ea224cbb83e66ae02885e
-cp %{_builddir}/gmsh-4.8.4-source/contrib/eigen/COPYING.GPL %{buildroot}/usr/share/package-licenses/gmsh/8624bcdae55baeef00cd11d5dfcfa60f68710a02
-cp %{_builddir}/gmsh-4.8.4-source/contrib/eigen/COPYING.LGPL %{buildroot}/usr/share/package-licenses/gmsh/01a6b4bf79aca9b556822601186afab86e8c4fbf
-cp %{_builddir}/gmsh-4.8.4-source/contrib/eigen/COPYING.MINPACK %{buildroot}/usr/share/package-licenses/gmsh/df73e10dcfd2d05667e6fe85cabe5dfe3c984727
-cp %{_builddir}/gmsh-4.8.4-source/contrib/eigen/COPYING.MPL2 %{buildroot}/usr/share/package-licenses/gmsh/9744cedce099f727b327cd9913a1fdc58a7f5599
-cp %{_builddir}/gmsh-4.8.4-source/contrib/eigen/COPYING.README %{buildroot}/usr/share/package-licenses/gmsh/a7584db2e76a50884b3fe13360f2e6a354f5bedf
-cp %{_builddir}/gmsh-4.8.4-source/contrib/hxt/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/11aa6b73eebba1fd04f2008fd88e7135a3049b49
-cp %{_builddir}/gmsh-4.8.4-source/contrib/kbipack/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/8b6e6298dbea901e1d36e2693ca209cc9afaa75c
-cp %{_builddir}/gmsh-4.8.4-source/contrib/metis/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/a7c3a4f7dcf7a014c7dfdd3f8752d699eb7f7c2e
-cp %{_builddir}/gmsh-4.8.4-source/contrib/mpeg_encode/COPYRIGHT.txt %{buildroot}/usr/share/package-licenses/gmsh/b9bb073a06d409c357d96e3616fb3c0fbc25a530
-cp %{_builddir}/gmsh-4.8.4-source/contrib/voro++/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/39d1b08cdc31ab93d272c7377e2fc4ca635068a4
-cp %{_builddir}/gmsh-4.8.4-source/utils/pypi/gmsh-dev/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/4cc77b90af91e615a64ae04893fdffa7939db84c
-cp %{_builddir}/gmsh-4.8.4-source/utils/pypi/gmsh/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/4cc77b90af91e615a64ae04893fdffa7939db84c
+cp %{_builddir}/gmsh-%{version}-source/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/dbe2024835d6ed5e4240eec606ed656247a78b1c || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/ANN/Copyright.txt %{buildroot}/usr/share/package-licenses/gmsh/20adfc29688bd1c919d4a6257083f48ca32e6762 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/ANN/License.txt %{buildroot}/usr/share/package-licenses/gmsh/b3225b981f5cc501b08289f989e8fb4cde208598 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/MathEx/license.txt %{buildroot}/usr/share/package-licenses/gmsh/1b10da150f8acd92e45dc8454a4d80b29acb2f90 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/Netgen/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/e3c201d5ec0b1d34403a209120ffbe44fee51337 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/eigen/COPYING.BSD %{buildroot}/usr/share/package-licenses/gmsh/8fa159b3e41e0a44e10ea224cbb83e66ae02885e || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/eigen/COPYING.GPL %{buildroot}/usr/share/package-licenses/gmsh/8624bcdae55baeef00cd11d5dfcfa60f68710a02 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/eigen/COPYING.LGPL %{buildroot}/usr/share/package-licenses/gmsh/01a6b4bf79aca9b556822601186afab86e8c4fbf || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/eigen/COPYING.MINPACK %{buildroot}/usr/share/package-licenses/gmsh/df73e10dcfd2d05667e6fe85cabe5dfe3c984727 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/eigen/COPYING.MPL2 %{buildroot}/usr/share/package-licenses/gmsh/9744cedce099f727b327cd9913a1fdc58a7f5599 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/eigen/COPYING.README %{buildroot}/usr/share/package-licenses/gmsh/a7584db2e76a50884b3fe13360f2e6a354f5bedf || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/hxt/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/11aa6b73eebba1fd04f2008fd88e7135a3049b49 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/kbipack/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/8b6e6298dbea901e1d36e2693ca209cc9afaa75c || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/metis/LICENSE.txt %{buildroot}/usr/share/package-licenses/gmsh/a7c3a4f7dcf7a014c7dfdd3f8752d699eb7f7c2e || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/mpeg_encode/COPYRIGHT.txt %{buildroot}/usr/share/package-licenses/gmsh/b9bb073a06d409c357d96e3616fb3c0fbc25a530 || :
+cp %{_builddir}/gmsh-%{version}-source/contrib/voro++/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/39d1b08cdc31ab93d272c7377e2fc4ca635068a4 || :
+cp %{_builddir}/gmsh-%{version}-source/utils/pypi/gmsh-dev/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/4cc77b90af91e615a64ae04893fdffa7939db84c || :
+cp %{_builddir}/gmsh-%{version}-source/utils/pypi/gmsh/LICENSE %{buildroot}/usr/share/package-licenses/gmsh/4cc77b90af91e615a64ae04893fdffa7939db84c || :
 pushd clr-build-openmpi
 module load openmpi
 %make_install_openmpi
@@ -346,8 +346,8 @@ install -Dpm 0644 utils/icons/gmsh.svg %{buildroot}/usr/share/icons/hicolor/scal
 /usr/lib64/openmpi/bin/gmsh
 /usr/lib64/openmpi/lib/libgmsh.so.4.8
 /usr/lib64/openmpi/lib/libgmsh.so.4.8.4
-/usr/lib64/openmpi/lib/python3.10/site-packages/gmsh.py
-/usr/lib64/openmpi/lib/python3.10/site-packages/onelab.py
+/usr/lib64/openmpi/lib/python3.11/site-packages/gmsh.py
+/usr/lib64/openmpi/lib/python3.11/site-packages/onelab.py
 /usr/lib64/openmpi/share/doc/gmsh/CHANGELOG.txt
 /usr/lib64/openmpi/share/doc/gmsh/CREDITS.txt
 /usr/lib64/openmpi/share/doc/gmsh/LICENSE.txt
