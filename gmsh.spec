@@ -7,7 +7,7 @@
 #
 Name     : gmsh
 Version  : 4.8.4
-Release  : 31
+Release  : 32
 URL      : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source0  : https://gmsh.info/src/gmsh-4.8.4-source.tgz
 Source1  : gmsh.desktop
